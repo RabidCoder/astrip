@@ -25,13 +25,17 @@ def create_new_file(filename, marker):
 
 def validate_marker(filename, marker):
     """
-    Check whether the file contains the expected marker.
+    Validate that the file belongs to this application by checking its marker.
 
-    The marker must be located on the first line of the file.
+    The expected marker must be located on the first line of the file.
     """
     with open(filename, "r", encoding="utf-8") as f:
         first_line: str = f.readline()
-        return first_line == marker
+
+        if first_line != marker:
+            raise ForeignFileError(
+                "File is not recognized as a valid workspace file. Aborting to prevent data loss."
+            )
 
 
 def prepare_workspace(filename, marker):
@@ -46,15 +50,11 @@ def prepare_workspace(filename, marker):
             - if invalid → raise an error to prevent data loss
     """
     if not os.path.exists(filename):
-        create_new_file(marker, filename)
+        create_new_file(filename, marker)
         return
 
-    is_valid: bool = validate_marker(filename, marker)
-
-    if not is_valid:
-        raise ForeignFileError(
-            "File is not recognized as a valid workspace file. Aborting to prevent data loss."
-        )
+    # Ensure file belongs to this application
+    validate_marker(filename, marker)
 
     # If we got here → file is valid
-    create_new_file(marker, filename)
+    create_new_file(filename, marker)
