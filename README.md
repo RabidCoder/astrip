@@ -6,6 +6,16 @@ It provides a safe and deterministic pipeline for cleaning raw text data.
 
 ---
 
+🌐 Languages: **English | [Русский](README.ru.md)**
+
+---
+
+## 🎬 Demo
+
+![AStrip Demo](assets/demo.gif)
+
+---
+
 ## Pipeline
 
 ### 1. Prepare
@@ -25,20 +35,20 @@ It provides a safe and deterministic pipeline for cleaning raw text data.
 
 ---
 
+## 🚀 Quick Start
+
+1. Run prepare step  
+2. Add raw text to input file  
+3. Run process step  
+4. Get cleaned output file  
+
+---
+
 ## Safety Model
 
 - Input file is never modified during processing
 - Files are validated using a marker system
 - Foreign files are not processed
-
----
-
-## Usage
-
-1. Run prepare step
-2. Add raw text to input file
-3. Run process step
-4. Get cleaned output file
 
 ---
 
