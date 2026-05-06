@@ -30,7 +30,8 @@ It provides a safe and deterministic pipeline for cleaning raw text data.
   - lowercase conversion
   - whitespace cleanup (spaces, tabs, newlines)
 - Removes empty lines
-- Removes duplicates (after normalization)
+- Removes duplicate entries
+- Sorts entries alphabetically
 - Writes clean output to file
 
 ---
@@ -54,7 +55,7 @@ It provides a safe and deterministic pipeline for cleaning raw text data.
 
 ## Release
 
-📦 Latest version: v1.0  
+📦 Latest version: v1.1
 👉 See Release Notes for changes and details
 
 ---
